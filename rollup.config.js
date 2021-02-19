@@ -55,6 +55,7 @@ function createCommonJSConfig(input, output) {
 }
 
 export default [
+  createDeclarationConfig('src/index.ts', 'dist'),
   createESMConfig('src/index.ts', 'dist/index.js'),
   createCommonJSConfig('src/index.ts', 'dist/index.cjs.js'),
 ]
