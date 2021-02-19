@@ -8,6 +8,9 @@ const createBabelConfig = require('./babel.config')
 
 const { root } = path.parse(process.cwd())
 const external = (id) => !id.startsWith('.') && !id.startsWith(root)
+const watch = {
+  include: 'src/**',
+}
 const extensions = ['.js', '.ts', '.tsx']
 const getBabelOptions = (targets) => ({
   ...createBabelConfig({ env: (env) => env === 'build' }, targets),
@@ -21,6 +24,7 @@ function createDeclarationConfig(input, output) {
     output: {
       dir: output,
     },
+    watch,
     external,
     plugins: [typescript({ declaration: true, outDir: output })],
   }
@@ -31,6 +35,7 @@ function createESMConfig(input, output) {
     input,
     output: { file: output, format: 'esm' },
     external,
+    watch,
     plugins: [
       resolve({ extensions }),
       typescript(),
@@ -45,6 +50,7 @@ function createCommonJSConfig(input, output) {
     input,
     output: { file: output, format: 'cjs', exports: 'named' },
     external,
+    watch,
     plugins: [
       resolve({ extensions }),
       typescript(),
