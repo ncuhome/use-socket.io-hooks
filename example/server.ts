@@ -9,7 +9,6 @@ const io = new Server(8081, {
 
 io.on('connect', (socket: Socket) => {
   console.log(`connect ${socket.id}`);
-  socket.emit('ping', 23333);
 
   socket.on('ping', (value) => {
     console.log('ping');

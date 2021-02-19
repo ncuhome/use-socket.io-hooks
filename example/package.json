@@ -5,7 +5,7 @@
     "test": "web-test-runner \"src/**/*.test.tsx\"",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
-    "server": "ts-node server.ts"
+    "server": "ts-node  -O '{\"module\":\"commonjs\"}' -s server.ts"
   },
   "dependencies": {
     "react": "^17.0.0",
