@@ -8,6 +8,12 @@ interface Props {
   lazy?: boolean
 }
 
+/**
+ * 自动初始化 socket
+ *
+ * - 不使用 Provider 也可以初始化 socket 连接
+ * - 支持 socket 连接动态加载
+ */
 export const Provider: React.FC<Props> = ({
   url,
   opts,

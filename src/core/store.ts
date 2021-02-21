@@ -6,6 +6,7 @@ type SocketIO = typeof Socket | null
 interface SocketData {
   [key: string]: any
   socket: SocketIO
+  sockets: SocketIO[]
   url: string
   opts: any
   isConnect: boolean
@@ -15,6 +16,7 @@ interface SocketData {
 export const useSocketStore = stateFactory(
   {
     socket: null as SocketIO,
+    sockets: [] as SocketIO[],
     url: null,
     opts: null,
     isConnect: false,
@@ -27,7 +29,19 @@ export const useSocketStore = stateFactory(
         return state
       })
     },
-    setMutiValue: (data: { [P in keyof SocketData]?: SocketData[P] }) => {
+    addSocketToList: (socket: SocketIO) => {
+      set((state) => {
+        state.sockets.push(socket)
+        return state
+      })
+    },
+    setData: (key: string, value: any) => {
+      set((state) => {
+        state.data[key] = value
+        return state
+      })
+    },
+    setMutiValue: (data: Partial<SocketData>) => {
       set((state) => {
         Object.keys(data).forEach((i) => {
           if (state[i] !== undefined) {
