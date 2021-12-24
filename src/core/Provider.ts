@@ -45,6 +45,7 @@ export const Provider: React.FC<Props> = ({
   }, [socketURL, socketOpts, lazy])
 
   useEffect(() => {
+    console.log(socketInstance)
     if (!socketInstance) return
 
     socketInstance.on('connect', () => {

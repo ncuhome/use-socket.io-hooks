@@ -1,11 +1,14 @@
 import { Server, Socket } from 'socket.io';
 
-const io = new Server(8081, {
+const io = new Server(12341, {
+  allowEIO3: true,
   cors: {
     origin: '*',
     methods: ['GET', 'POST'],
   },
 });
+
+console.log(777);
 
 io.on('connect', (socket: Socket) => {
   console.log(`connect ${socket.id}`);
