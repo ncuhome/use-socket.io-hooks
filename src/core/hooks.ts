@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSocketStore } from './store'
 import io from 'socket.io-client'
 
@@ -164,10 +164,10 @@ export const useDisconnect = () => {
 }
 
 /**
- * 返回 socket 实例
+ * socket 加载后执行
  */
-export const useSocket = () => {
+export const useMounted = (fn: React.EffectCallback) => {
   const [socket] = useSocketStore((state) => [state.socket])
 
-  return { socket }
+  useEffect(fn, [socket])
 }
