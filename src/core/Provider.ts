@@ -37,7 +37,10 @@ export const Provider: React.FC<Props> = ({
     if (lazy) return
 
     connect()
-    return disconnect
+
+    return () => {
+      disconnect()
+    }
   }, [socketURL, socketOpts, lazy])
 
   useEffect(() => {

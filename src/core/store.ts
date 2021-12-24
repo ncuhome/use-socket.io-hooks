@@ -9,7 +9,6 @@ interface SocketData {
   sockets: SocketIO[]
   url: string
   opts: any
-  isConnect: boolean
   data: Record<string, any>
 }
 
@@ -19,7 +18,6 @@ export const useSocketStore = stateFactory(
     sockets: [] as SocketIO[],
     url: null,
     opts: null,
-    isConnect: false,
     data: {},
   } as SocketData,
   (set) => ({

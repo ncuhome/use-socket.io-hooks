@@ -95,6 +95,7 @@ export const useConnect = (newUrl?: string, newOpts?: any) => {
 
     console.log('断开连接中...')
     socketInstance.disconnect()
+    setMultiValue({ socket: null, isConnect: false })
   }
 
   return {
@@ -137,4 +138,27 @@ export const useOnState = <T extends string, K extends Record<T, any>>(
   return {
     value: data[event],
   }
+}
+
+/**
+ * 返回断开函数
+ */
+export const useDisconnect = () => {
+  const [socket, setMultiValue] = useSocketStore((state) => [
+    state.socket,
+    state.setMultiValue,
+  ])
+
+  const disconnect = () => {
+    if (!socket) {
+      console.log('未建立连接')
+      return
+    }
+
+    console.log('断开连接中...')
+    socket.disconnect()
+    setMultiValue({ socket: null, isConnect: false })
+  }
+
+  return disconnect
 }
