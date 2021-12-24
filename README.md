@@ -15,7 +15,7 @@ $ npm i use-socket.io-hooks
 ## Example
 
 ```tsx
-import { useListener, useEmit } from 'use-socket.io-hooks'
+import { Provider, useListener, useEmit } from 'use-socket.io-hooks'
 
 const Main = () => {
   const push = useEmit('ping')
