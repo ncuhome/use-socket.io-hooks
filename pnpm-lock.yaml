@@ -20,8 +20,8 @@ specifiers:
   immer: ^8.0.1
   install-peers-cli: ^2.2.0
   lint-staged: ^10.5.4
-  lodash: ^4.17.20
   prettier: ^2.2.1
+  pretty-quick: ^3.1.3
   rimraf: ^3.0.2
   rollup: ^2.39.0
   rollup-plugin-size-snapshot: ^0.12.0
@@ -33,7 +33,6 @@ specifiers:
 
 dependencies:
   immer: 8.0.4
-  lodash: 4.17.21
   socket.io-client: 3.1.3
   zustand: 3.6.8
 
@@ -57,6 +56,7 @@ devDependencies:
   install-peers-cli: 2.2.0
   lint-staged: 10.5.4
   prettier: 2.5.1
+  pretty-quick: 3.1.3_prettier@2.5.1
   rimraf: 3.0.2
   rollup: 2.62.0
   rollup-plugin-size-snapshot: 0.12.0_rollup@2.62.0
@@ -458,8 +458,8 @@ packages:
     hasBin: true
     dev: true
 
-  ? /@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression/7.16.2_@babel+core@7.16.5
-  : resolution:
+  /@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression/7.16.2_@babel+core@7.16.5:
+    resolution:
       {
         integrity: sha512-h37CvpLSf8gb2lIJ2CgC3t+EjFbi0t8qS7LCS1xcJIlEXE4czlofwaW7W1HA8zpgOCzI9C1nmoqNR1zWkk0pQg==,
       }
@@ -471,8 +471,8 @@ packages:
       '@babel/helper-plugin-utils': 7.16.5
     dev: true
 
-  ? /@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining/7.16.0_@babel+core@7.16.5
-  : resolution:
+  /@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining/7.16.0_@babel+core@7.16.5:
+    resolution:
       {
         integrity: sha512-4tcFwwicpWTrpl9qjf7UsoosaArgImF85AxqCRZlgc3IQDvkUHjJpruXAL58Wmj+T6fypWTC/BakfEkwIL/pwA==,
       }
@@ -591,8 +591,8 @@ packages:
       '@babel/plugin-syntax-json-strings': 7.8.3_@babel+core@7.16.5
     dev: true
 
-  ? /@babel/plugin-proposal-logical-assignment-operators/7.16.5_@babel+core@7.16.5
-  : resolution:
+  /@babel/plugin-proposal-logical-assignment-operators/7.16.5_@babel+core@7.16.5:
+    resolution:
       {
         integrity: sha512-xqibl7ISO2vjuQM+MzR3rkd0zfNWltk7n9QhaD8ghMmMceVguYrNDt7MikRyj4J4v3QehpnrU8RYLnC7z/gZLA==,
       }
@@ -1192,8 +1192,8 @@ packages:
       - supports-color
     dev: true
 
-  ? /@babel/plugin-transform-named-capturing-groups-regex/7.16.5_@babel+core@7.16.5
-  : resolution:
+  /@babel/plugin-transform-named-capturing-groups-regex/7.16.5_@babel+core@7.16.5:
+    resolution:
       {
         integrity: sha512-/wqGDgvFUeKELW6ex6QB7dLVRkd5ehjw34tpXu1nhKC0sFfmaLabIswnpf8JgDyV2NeDmZiwoOb0rAmxciNfjA==,
       }
@@ -1806,6 +1806,13 @@ packages:
       }
     dev: true
 
+  /@types/minimatch/3.0.5:
+    resolution:
+      {
+        integrity: sha512-Klz949h02Gz2uZCMGwDUSDS1YBlTdDDgbWHi+81l29tQALUtvz4rAYi5uoVhE5Lagoq6DeqAUlbrHvW/mXDgdQ==,
+      }
+    dev: true
+
   /@types/node/14.18.2:
     resolution:
       {
@@ -2412,6 +2419,14 @@ packages:
     engines: { node: '>=0.10.0' }
     dev: true
 
+  /array-differ/3.0.0:
+    resolution:
+      {
+        integrity: sha512-THtfYS6KtME/yIAhKjZ2ul7XI96lQGHRputJQHO80LAWQnuGP4iCIN8vdMRboGbIEYBwU33q8Tch1os2+X0kMg==,
+      }
+    engines: { node: '>=8' }
+    dev: true
+
   /array-union/2.1.0:
     resolution:
       {
@@ -2428,6 +2443,14 @@ packages:
   /array-unique/0.3.2:
     resolution: { integrity: sha1-qJS3XUvE9s1nnvMkSp/Y9Gri1Cg= }
     engines: { node: '>=0.10.0' }
+    dev: true
+
+  /arrify/2.0.1:
+    resolution:
+      {
+        integrity: sha512-3duEwti880xqi4eAMN8AyR4a0ByT90zoYdLlevfrvU43vb0YZwZVfxOgxWrLXXXpyugL0hNZc9G6BiB5B3nUug==,
+      }
+    engines: { node: '>=8' }
     dev: true
 
   /asn1.js/5.4.1:
@@ -2906,6 +2929,17 @@ packages:
       ansi-styles: 3.2.1
       escape-string-regexp: 1.0.5
       supports-color: 5.5.0
+    dev: true
+
+  /chalk/3.0.0:
+    resolution:
+      {
+        integrity: sha512-4D3B6Wf41KOYRFdszmDqMCGq5VV/uMAB273JILmO+3jAlh8X4qDtdtgCR3fxtbLEMzSx22QdhnDcJvu2u1fVwg==,
+      }
+    engines: { node: '>=8' }
+    dependencies:
+      ansi-styles: 4.3.0
+      supports-color: 7.2.0
     dev: true
 
   /chalk/4.1.2:
@@ -5123,13 +5157,6 @@ packages:
     resolution: { integrity: sha1-WjUNoLERO4N+z//VgSy+WNbq4ZM= }
     dev: true
 
-  /lodash/4.17.21:
-    resolution:
-      {
-        integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==,
-      }
-    dev: false
-
   /log-symbols/4.1.0:
     resolution:
       {
@@ -5412,6 +5439,14 @@ packages:
       run-queue: 1.0.3
     dev: true
 
+  /mri/1.2.0:
+    resolution:
+      {
+        integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==,
+      }
+    engines: { node: '>=4' }
+    dev: true
+
   /ms/2.0.0:
     resolution: { integrity: sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g= }
     dev: true
@@ -5421,6 +5456,20 @@ packages:
       {
         integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==,
       }
+
+  /multimatch/4.0.0:
+    resolution:
+      {
+        integrity: sha512-lDmx79y1z6i7RNx0ZGCPq1bzJ6ZoDDKbvh7jxr9SJcWLkShMzXrHbYVpTdnhNM5MXpDUxCQ4DgqVttVXlBgiBQ==,
+      }
+    engines: { node: '>=8' }
+    dependencies:
+      '@types/minimatch': 3.0.5
+      array-differ: 3.0.0
+      array-union: 2.1.0
+      arrify: 2.0.1
+      minimatch: 3.0.4
+    dev: true
 
   /nan/2.15.0:
     resolution:
@@ -5956,6 +6005,25 @@ packages:
       ansi-regex: 5.0.1
       ansi-styles: 4.3.0
       react-is: 17.0.2
+    dev: true
+
+  /pretty-quick/3.1.3_prettier@2.5.1:
+    resolution:
+      {
+        integrity: sha512-kOCi2FJabvuh1as9enxYmrnBC6tVMoVOenMaBqRfsvBHB0cbpYHjdQEpSglpASDFEXVwplpcGR4CLEaisYAFcA==,
+      }
+    engines: { node: '>=10.13' }
+    hasBin: true
+    peerDependencies:
+      prettier: '>=2.0.0'
+    dependencies:
+      chalk: 3.0.0
+      execa: 4.1.0
+      find-up: 4.1.0
+      ignore: 5.2.0
+      mri: 1.2.0
+      multimatch: 4.0.0
+      prettier: 2.5.1
     dev: true
 
   /process-nextick-args/2.0.1:
