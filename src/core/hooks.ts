@@ -139,5 +139,7 @@ export const useOnState = <T extends string, K extends Record<T, any>>(
     }
   }, [socket])
 
-  return data[event]
+  return {
+    value: data[event],
+  }
 }

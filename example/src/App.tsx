@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
-import { useListener, useEmit } from 'use-socket.io-client';
+import { useListener, useEmit } from 'use-socket.io-hooks';
 import './App.css';
 
 interface AppProps {}
