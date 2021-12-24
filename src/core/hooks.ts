@@ -162,3 +162,12 @@ export const useDisconnect = () => {
 
   return disconnect
 }
+
+/**
+ * 返回 socket 实例
+ */
+export const useSocket = () => {
+  const [socket] = useSocketStore((state) => [state.socket])
+
+  return { socket }
+}
