@@ -56,6 +56,26 @@ The monitored data is automatically converted to state.
 const { value } = useOnState(<eventName:string>)
 ```
 
+### useMounted
+
+```tsx
+import { Provider, useListener, useEmit } from 'use-socket.io-hooks'
+
+const Main = () => {
+  const push = useEmit('ping')
+
+  useMounted(() => {
+    push('2333')
+  })
+
+  useListener('ping', (data) => {
+    alert(data)
+  })
+
+  return <div>listen alert ping</div>
+}
+```
+
 ## Roadmap
 
 - [x] lazy Connect
