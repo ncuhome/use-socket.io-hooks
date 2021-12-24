@@ -20,21 +20,17 @@ export const Provider: React.FC<Props> = ({
   lazy = false,
   children,
 }) => {
-  const {
-    socketInstance,
-    setMutiValue,
-    socketURL,
-    socketOpts,
-  } = useSocketStore((state) => ({
-    socketInstance: state.socket,
-    socketURL: state.url,
-    socketOpts: state.opts,
-    setMutiValue: state.setMutiValue,
-  }))
+  const { socketInstance, setMultiValue, socketURL, socketOpts } =
+    useSocketStore((state) => ({
+      socketInstance: state.socket,
+      socketURL: state.url,
+      socketOpts: state.opts,
+      setMultiValue: state.setMultiValue,
+    }))
   const { connect, disconnect } = useConnect()
 
   useEffect(() => {
-    setMutiValue({ url, opts })
+    setMultiValue({ url, opts })
   }, [])
 
   useEffect(() => {
@@ -45,15 +41,14 @@ export const Provider: React.FC<Props> = ({
   }, [socketURL, socketOpts, lazy])
 
   useEffect(() => {
-    console.log(socketInstance)
     if (!socketInstance) return
 
     socketInstance.on('connect', () => {
-      setMutiValue({ isConnect: true })
+      setMultiValue({ isConnect: true })
       console.log('已成功建立 websocket 连接')
     })
     socketInstance.on('disconnect', () => {
-      setMutiValue({ isConnect: false })
+      setMultiValue({ isConnect: false })
       console.log('已断开连接')
     })
 

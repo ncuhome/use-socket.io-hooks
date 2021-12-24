@@ -52,19 +52,14 @@ export const useListener = <T extends string, K extends Record<T, any>>(
  * 提供连接函数
  */
 export const useConnect = (newUrl?: string, newOpts?: any) => {
-  const {
-    socketInstance,
-    setSocketInstance,
-    url,
-    opts,
-    setMutiValue,
-  } = useSocketStore((state) => ({
-    socketInstance: state.socket,
-    url: state.url,
-    opts: state.opts,
-    setSocketInstance: state.setSocket,
-    setMutiValue: state.setMutiValue,
-  }))
+  const { socketInstance, setSocketInstance, url, opts, setMultiValue } =
+    useSocketStore((state) => ({
+      socketInstance: state.socket,
+      url: state.url,
+      opts: state.opts,
+      setSocketInstance: state.setSocket,
+      setMultiValue: state.setMultiValue,
+    }))
 
   const connect = () => {
     let _url = url,
@@ -72,14 +67,14 @@ export const useConnect = (newUrl?: string, newOpts?: any) => {
 
     if (newUrl) {
       _url = newUrl
-      setMutiValue({ url: _url })
+      setMultiValue({ url: _url })
     }
 
     if (!_url) return
 
     if (newOpts) {
       _opts = newOpts
-      setMutiValue({ url: _opts })
+      setMultiValue({ opts: _opts })
     }
 
     if (socketInstance) {
@@ -88,7 +83,7 @@ export const useConnect = (newUrl?: string, newOpts?: any) => {
     }
 
     console.log('建立连接中...')
-    const socket = io(_url, _opts)
+    const socket = io(_url, { ..._opts })
     setSocketInstance(socket)
   }
 

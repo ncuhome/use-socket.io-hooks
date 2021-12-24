@@ -41,7 +41,7 @@ export const useSocketStore = stateFactory(
         return state
       })
     },
-    setMutiValue: (data: Partial<SocketData>) => {
+    setMultiValue: (data: Partial<SocketData>) => {
       set((state) => {
         Object.keys(data).forEach((i) => {
           if (state[i] !== undefined) {

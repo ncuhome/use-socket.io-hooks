@@ -6,15 +6,14 @@ import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider url="localhost:12341">
+    <Provider
+      url="localhost:8081"
+      opts={{
+        query: 'sxy',
+      }}
+    >
       <App />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root'),
 );
-
-// Hot Module Replacement (HMR) - Remove this snippet to remove HMR.
-// Learn more: https://snowpack.dev/concepts/hot-module-replacement
-if (import.meta.hot) {
-  import.meta.hot.accept();
-}
