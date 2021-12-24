@@ -15,7 +15,7 @@ $ npm i use-socket.io-hooks
 ## Example
 
 ```tsx
-import { useListener, useEmit } from 'use-socket.io-hooks'
+import { Provider, useListener, useEmit } from 'use-socket.io-hooks'
 
 const Main = () => {
   const push = useEmit('ping')
@@ -65,3 +65,23 @@ const { value } = useOnState(<eventName:string>)
 - [ ] expose socket context
 - [ ] muti nsp (opinion)
 - [ ] release 1.0 and OC
+
+## Issue
+
+if you use vite: https://github.com/vitejs/vite/issues/4798#issuecomment-925689898
+
+```tsx
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  resolve: {
+    alias: {
+      'xmlhttprequest-ssl':
+        './node_modules/engine.io-client/lib/xmlhttprequest.js',
+    },
+  },
+  plugins: [react()],
+})
+```
