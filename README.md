@@ -9,7 +9,7 @@ Since most scene of socket-io are single instance, why not directly provide a re
 ## Installation
 
 ```shell
-$ npm i use-socket.io-hook
+$ npm i use-socket.io-hooks
 ```
 
 ## Example
