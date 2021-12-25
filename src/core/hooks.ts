@@ -14,7 +14,7 @@ export const useEmit = <T extends string, K extends Record<T, any>>(
     (data: K[T]) => {
       if (!socket) return
 
-      socket.emit(event, JSON.stringify(data))
+      socket.emit(event, data)
     },
     [socket]
   )
@@ -38,8 +38,9 @@ export const useListener = <T extends string, K extends Record<T, any>>(
 
     socket.on(event, (data: K[T]) => {
       fn(data)
-      console.log(data)
+      console.log('listener:', data)
     })
+
     return () => {
       socket.off(event)
     }

@@ -21,7 +21,9 @@ function App({}: AppProps) {
         </p> */}
         <div
           onClick={() => {
-            push('nm');
+            push({
+              name: 'sxy',
+            });
           }}
         >
           send message

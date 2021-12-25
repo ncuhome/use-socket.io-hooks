@@ -15,7 +15,7 @@ io.on('connect', (socket: Socket) => {
 
   socket.on('ping', (value) => {
     console.log('ping');
-    console.log(value);
+    console.log(value.name);
     socket.emit('ping', 23333);
   });
 
