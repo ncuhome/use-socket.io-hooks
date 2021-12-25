@@ -1,6 +1,6 @@
 {
   "name": "use-socket.io-hooks",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.cjs",
@@ -21,7 +21,7 @@
   },
   "scripts": {
     "build": "tsup",
-    "dev": "tsup-node",
+    "dev": "tsup --watch",
     "deploy": "tsup && yarn publish",
     "prettier": "pretty-quick",
     "lint": "eslint -f unix \"package/**/*.{ts,tsx}\""
