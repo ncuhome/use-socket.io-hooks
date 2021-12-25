@@ -1,4 +1,5 @@
 import { useListener, useEmit } from 'use-socket.io-hooks';
+import { Provider } from 'use-socket.io-hooks';
 import './App.css';
 
 interface AppProps {}
@@ -13,34 +14,31 @@ function App({}: AppProps) {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        {/* <p>
-          Page has been open for <code>{count}</code> seconds.
-        </p> */}
-        <div
+        <button
           onClick={() => {
             push({
               name: 'sxy',
             });
           }}
         >
-          send message
-        </div>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
+          click me for send message
+        </button>
       </header>
     </div>
   );
 }
 
-export default App;
+export default () => {
+  return (
+    <Provider
+      url="localhost:8081"
+      opts={{
+        query: {
+          count: 0,
+        },
+      }}
+    >
+      <App />
+    </Provider>
+  );
+};

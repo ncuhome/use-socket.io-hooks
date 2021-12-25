@@ -31,7 +31,7 @@ export const Provider: React.FC<Props> = ({
 
   useEffect(() => {
     setMultiValue({ url, opts })
-  }, [])
+  }, [url, opts])
 
   useEffect(() => {
     if (lazy) return
