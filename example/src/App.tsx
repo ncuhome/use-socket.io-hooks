@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useListener, useEmit } from 'use-socket.io-hooks';
 import { Provider } from 'use-socket.io-hooks';
 import './App.css';
@@ -12,33 +13,32 @@ function App({}: AppProps) {
   });
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <button
-          onClick={() => {
-            push({
-              name: 'sxy',
-            });
-          }}
-        >
-          click me for send message
-        </button>
-      </header>
-    </div>
+    <button
+      onClick={() => {
+        push({
+          name: 'sxy',
+        });
+      }}
+    >
+      click me for send message
+    </button>
   );
 }
 
 export default () => {
+  const [count, setCount] = useState(0);
   return (
     <Provider
       url="localhost:8081"
       opts={{
         query: {
-          count: 0,
+          count,
         },
+        transports: ['websocket'],
       }}
     >
       <App />
+      <button onClick={() => setCount((e) => e + 1)}>+1: {count}</button>
     </Provider>
   );
 };
